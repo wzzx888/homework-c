@@ -1,0 +1,16 @@
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+    int num,hun,ten,one,sum,mult;
+    printf("请输入三位数");
+    scanf("%d",&num);
+    hun=num/100;
+    ten=(num/10)-(hun*10);
+    one=num%10;
+    sum=hun+ten+one;
+    mult=hun*ten*one;
+    printf("这三个数字之和为%d\n这三个数字之积为%d",sum,mult);
+
+      return 0;
+}
