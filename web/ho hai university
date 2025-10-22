@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>河海大学110周年校庆</title>
+    <style>
+        /* 全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "SimHei", sans-serif;
+        }
+        
+        body {
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* 头部样式 - 修改为红色 */
+        header {
+            background-color: #D40000; /* 改为红色 */
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 60px;
+            margin-right: 15px;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .school-name {
+            font-size: 18px;
+            margin-top: 5px;
+        }
+        
+        .anniversary {
+            text-align: center;
+        }
+        
+        .anniversary h1 {
+            font-size: 36px;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .anniversary p {
+            font-size: 18px;
+        }
+        
+        /* 导航栏样式 - 修改为红色 */
+        nav {
+            background-color: #B30000; /* 改为深红色 */
+            padding: 10px 0;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav li {
+            margin: 0 20px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: #FF0000; /* 改为亮红色 */
+        }
+        
+        /* 横幅样式 */
+        .banner {
+            position: relative;
+            height: 400px;
+            background: linear-gradient(rgba(212,0,0,0.7), rgba(212,0,0,0.7)), 
+                        url('https://www.hhu.edu.cn/__local/3/09/5A/2B8E7D7A77B2D4D0F5B5A5C5A5C_5B5A5C5A_1.jpg') center/cover no-repeat;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .banner-content h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        }
+        
+        .banner-content p {
+            font-size: 24px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* 主要内容样式 */
+        .main-content {
+            padding: 50px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #D40000; /* 改为红色以匹配头部 */
+            font-size: 32px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: #D40000; /* 改为红色以匹配头部 */
+        }
+        
+        .intro {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+        
+        .intro p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+        
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        
+        .feature-box {
+            flex: 0 0 32%;
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 48px;
+            color: #D40000; /* 改为红色以匹配头部 */
+            margin-bottom: 15px;
+        }
+        
+        .feature-box h3 {
+            color: #D40000; /* 改为红色以匹配头部 */
+            margin-bottom: 15px;
+        }
+        
+        .timeline {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .timeline-year {
+            flex: 0 0 120px;
+            background-color: #D40000; /* 改为红色以匹配头部 */
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .timeline-content {
+            flex: 1;
+            padding: 10px 20px;
+            border-left: 2px solid #D40000; /* 改为红色以匹配头部 */
+            margin-left: 20px;
+        }
+        
+        .events {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .event-card {
+            flex: 0 0 48%;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+        }
+        
+        .event-image {
+            height: 200px;
+            background-color: #D40000; /* 改为红色以匹配头部 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+        
+        .event-details {
+            padding: 20px;
+        }
+        
+        .event-details h3 {
+            color: #D40000; /* 改为红色以匹配头部 */
+            margin-bottom: 10px;
+        }
+        
+        .event-date {
+            color: #666;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        /* 页脚样式 - 修改为红色 */
+        footer {
+            background-color: #B30000; /* 改为深红色 */
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section {
+            flex: 0 0 30%;
+        }
+        
+        .footer-section h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: white;
+        }
+        
+        .footer-section p, .footer-section a {
+            margin-bottom: 10px;
+            display: block;
+            color: #ccc;
+            text-decoration: none;
+        }
+        
+        .footer-section a:hover {
+            color: #FFCC00; /* 改为黄色以增强可读性 */
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+            color: #ccc;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .feature-box {
+                flex: 0 0 48%;
+            }
+            
+            .event-card {
+                flex: 0 0 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+            }
+            
+            nav li {
+                margin: 5px 10px;
+            }
+            
+            .banner-content h2 {
+                font-size: 36px;
+            }
+            
+            .banner-content p {
+                font-size: 18px;
+            }
+            
+            .feature-box {
+                flex: 0 0 100%;
+            }
+            
+            .footer-section {
+                flex: 0 0 100%;
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部 -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <!-- 这里使用文字替代校徽，实际使用时可以替换为图片 -->
+                    <div class="logo-placeholder">HHU</div>
+                    <div>
+                        <div class="logo-text">河海大学</div>
+                        <div class="school-name">Hohai University</div>
+                    </div>
+                </div>
+                <div class="anniversary">
+                    <h1>110周年校庆</h1>
+                    <p>1915 - 2025</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- 导航栏 -->
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="http://www.hhu.edu.cn" target="_blank">校庆动态</a></li>
+                <li><a href="#">河海历史</a></li>
+                <li><a href="https://hzc.hhu.edu.cn/fczs/list.htm" target="_blank">校友风采</a></li>
+                <li><a href="#">联系我们</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- 横幅 -->
+    <div class="banner">
+        <div class="banner-content">
+            <h2>河润万物 · 海纳百川</h2>
+            <p>庆祝河海大学建校110周年，传承百年办学传统，开启新时代发展征程</p>
+        </div>
+    </div>
+    
+    <!-- 主要内容 -->
+    <div class="container main-content">
+        <!-- 学校简介 -->
+        <section class="intro">
+            <h2 class="section-title">河海大学简介</h2>
+            <p>河海大学是一所拥有百年办学历史，以水利为特色，工科为主，多学科协调发展的教育部直属全国重点大学，是实施国家"211工程"重点建设、"985工程优势学科创新平台"建设以及设立研究生院的高校。</p>
+            <p>学校始建于1915年，前身可以追溯到1915年创建的"河海工程专门学校"，是中国第一所培养水利人才的高等学府。1952年，南京大学、交通大学、同济大学、浙江大学等高校的水利系科合并成立"华东水利学院"。1985年恢复传统校名"河海大学"。</p>
+            <p>在110年的办学历程中，河海大学始终秉承"艰苦朴素、实事求是、严格要求、勇于探索"的校训，为国家培养了近30万名各类人才，为国家水利水电事业和经济社会发展做出了重要贡献。</p>
+        </section>
+        
+        <!-- 校庆特色 -->
+        <section>
+            <h2 class="section-title">校庆特色活动</h2>
+            <div class="features">
+                <div class="feature-box">
+                    <div class="feature-icon">🎓</div>
+                    <h3>校庆庆典大会</h3>
+                    <p>隆重举行建校110周年庆祝大会，邀请海内外校友、各界嘉宾共襄盛举。</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon">🔬</div>
+                    <h3>学术高峰论坛</h3>
+                    <p>举办系列高水平学术会议，探讨水利科学与可持续发展前沿问题。</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon">🏛️</div>
+                    <h3>校史展览</h3>
+                    <p>全面展示河海大学110年办学历史与成就，传承河海精神与文化。</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 历史沿革 -->
+        <section class="timeline">
+            <h2 class="section-title">河海大学历史沿革</h2>
+            <div class="timeline-item">
+                <div class="timeline-year">1915年</div>
+                <div class="timeline-content">
+                    <h3>河海工程专门学校成立</h3>
+                    <p>中国第一所培养水利人才的高等学府在南京创建，张謇任校长。</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">1952年</div>
+                <div class="timeline-content">
+                    <h3>华东水利学院成立</h3>
+                    <p>全国高校院系调整，南京大学、交通大学、同济大学、浙江大学等高校的水利系科合并成立华东水利学院。</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">1985年</div>
+                <div class="timeline-content">
+                    <h3>恢复河海大学校名</h3>
+                    <p>经国家教委批准，华东水利学院恢复传统校名"河海大学"，邓小平同志题写校名。</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2025年</div>
+                <div class="timeline-content">
+                    <h3>建校110周年</h3>
+                    <p>河海大学迎来建校110周年华诞，开启新时代高质量发展新征程。</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 校庆活动 -->
+        <section>
+            <h2 class="section-title">校庆主要活动</h2>
+            <div class="events">
+                <div class="event-card">
+                    <div class="event-image">校庆庆典</div>
+                    <div class="event-details">
+                        <h3>110周年校庆庆典大会</h3>
+                        <div class="event-date">2025年10月27日</div>
+                        <p>隆重举行建校110周年庆祝大会，回顾办学历史，展示办学成就，展望未来发展。</p>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-image">学术论坛</div>
+                    <div class="event-details">
+                        <h3>水利科学与可持续发展国际论坛</h3>
+                        <div class="event-date">2025年10月26-28日</div>
+                        <p>汇聚全球水利领域顶尖专家学者，探讨水安全、水生态、水资源等重大课题。</p>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-image">校友联谊</div>
+                    <div class="event-details">
+                        <h3>全球校友联谊活动</h3>
+                        <div class="event-date">2025年10月25-27日</div>
+                        <p>邀请海内外校友重返母校，共叙师生情谊，见证母校发展。</p>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-image">文化展示</div>
+                    <div class="event-details">
+                        <h3>河海文化成果展</h3>
+                        <div class="event-date">2025年10月20-30日</div>
+                        <p>集中展示河海大学文化建设成果，包括校史展、书画展、摄影展等。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>联系我们</h3>
+                    <p>地址：江苏省南京市西康路1号</p>
+                    <p>电话：025-83786666</p>
+                    <p>邮箱：110anniversary@hhu.edu.cn</p>
+                </div>
+                <div class="footer-section">
+                    <h3>相关链接</h3>
+                    <a href="http://www.hhu.edu.cn" target="_blank">河海大学官网</a>
+                    <a href="http://www.hhu.edu.cn" target="_blank">校友总会</a>
+                    <a href="http://www.hhu.edu.cn" target="_blank">教育发展基金会</a>
+                    <a href="http://www.hhu.edu.cn" target="_blank">校庆专题网站</a>
+                </div>
+                <div class="footer-section">
+                    <h3>关注我们</h3>
+                    <p>微信公众号：河海大学</p>
+                    <p>微博：@河海大学</p>
+                    <p>抖音：河海大学</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>版权所有 © 2025 河海大学 网页设计小组</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
